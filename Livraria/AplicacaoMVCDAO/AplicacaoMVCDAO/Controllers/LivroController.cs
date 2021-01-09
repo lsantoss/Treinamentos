@@ -26,7 +26,8 @@ namespace AplicacaoMVCDAO.Controllers
         // GET: LivroController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Livro livro = _livroDAO.ObterPorId(id);
+            return View(livro);
         }
 
         // GET: LivroController/Create
@@ -58,16 +59,22 @@ namespace AplicacaoMVCDAO.Controllers
         // GET: LivroController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Livro livro = _livroDAO.ObterPorId(id);
+            return View(livro);
         }
 
         // POST: LivroController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, IFormCollection collection)
         {
             try
             {
+                Livro livro = new Livro();
+                await TryUpdateModelAsync(livro);
+
+                _livroDAO.Alterar(livro);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -79,16 +86,22 @@ namespace AplicacaoMVCDAO.Controllers
         // GET: LivroController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Livro livro = _livroDAO.ObterPorId(id);
+            return View(livro);
         }
 
         // POST: LivroController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, IFormCollection collection)
         {
             try
             {
+                Livro livro = new Livro();
+                await TryUpdateModelAsync(livro);
+
+                _livroDAO.Deletar(livro);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
