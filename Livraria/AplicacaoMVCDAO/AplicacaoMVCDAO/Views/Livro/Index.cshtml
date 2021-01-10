@@ -22,7 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Isbn)
             </th>
-            <th></th>
+            <th>
+                Ações
+            </th>
         </tr>
     </thead>
 
@@ -30,21 +32,21 @@
         @foreach (var item in Model) {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Imagem)
+                    <img src="data:image/jpeg;base64, @item.Imagem" height="80" width="60" alt="Capa do Livro"/>
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Autor)
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Edicao)
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Isbn)
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
                     @Html.ActionLink("Detalhar", "Details", new { id=item.Id }) |
                     @Html.ActionLink("Apagar", "Delete", new { id=item.Id })

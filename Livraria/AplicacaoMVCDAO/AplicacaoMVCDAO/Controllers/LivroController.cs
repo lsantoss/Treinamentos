@@ -2,7 +2,9 @@
 using AplicacaoMVCDAO.Models.Livros;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace AplicacaoMVCDAO.Controllers
@@ -38,13 +40,31 @@ namespace AplicacaoMVCDAO.Controllers
 
         // POST: LivroController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(IFormCollection collection)
         {
             try
             {
                 Livro livro = new Livro();
                 await TryUpdateModelAsync(livro);
+
+                if(collection.Files != null)
+                    if (collection.Files[0] != null)
+                        if(collection.Files[0].Length > 0)
+                        {
+                            var filePath = Path.GetTempFileName();
+
+                            using (var stream = System.IO.File.Create(filePath))
+                            {
+                                await collection.Files[0].CopyToAsync(stream);
+                            }
+
+                            var bytes = System.IO.File.ReadAllBytes(filePath);
+
+                            var base64 = Convert.ToBase64String(bytes);
+
+                            livro.Imagem = base64;
+                        }
+                        
 
                 livro = _livroDAO.Inserir(livro);
 
