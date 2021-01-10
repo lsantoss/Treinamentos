@@ -40,6 +40,7 @@ namespace AplicacaoMVCDAO.Controllers
 
         // POST: LivroController/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(IFormCollection collection)
         {
             try
@@ -91,6 +92,24 @@ namespace AplicacaoMVCDAO.Controllers
             {
                 Livro livro = new Livro();
                 await TryUpdateModelAsync(livro);
+
+                if (collection.Files != null)
+                    if (collection.Files[0] != null)
+                        if (collection.Files[0].Length > 0)
+                        {
+                            var filePath = Path.GetTempFileName();
+
+                            using (var stream = System.IO.File.Create(filePath))
+                            {
+                                await collection.Files[0].CopyToAsync(stream);
+                            }
+
+                            var bytes = System.IO.File.ReadAllBytes(filePath);
+
+                            var base64 = Convert.ToBase64String(bytes);
+
+                            livro.Imagem = base64;
+                        }
 
                 _livroDAO.Alterar(livro);
 
