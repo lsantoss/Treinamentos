@@ -63,8 +63,7 @@ namespace AplicacaoMVCDAO.Controllers
                             var base64 = Convert.ToBase64String(bytes);
 
                             livro.Imagem = base64;
-                        }
-                        
+                        }                        
 
                 livro = _livroDAO.Inserir(livro);
 
