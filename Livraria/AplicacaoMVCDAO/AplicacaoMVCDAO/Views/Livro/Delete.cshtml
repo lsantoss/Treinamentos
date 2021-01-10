@@ -2,8 +2,6 @@
 
 <h1>Apagar Livro</h1>
 
-<h5>Realemente deseja apagar esse livro?</h5>
-
 <hr />
 
 <form asp-action="Delete" method="post">
@@ -13,9 +11,9 @@
                 <label asp-for="Imagem" class="control-label"></label>
                 <br />
                 <img src="data:image/jpeg;base64, @Model.Imagem" height="385" width="300" alt="Capa do Livro" />
-                <span asp-validation-for="Imagem" class="text-danger"></span>
             </div>
         </div>
+
         <div class="col-md-8">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
