@@ -30,8 +30,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Imagem" class="control-label"></label>
-                <input asp-for="Imagem" class="form-control-file" type="file" accept="image/jpeg"/>
-                <span asp-for="Imagem" class="text-danger"></span>
+                <input asp-for="Imagem" class="form-control-file" type="file" accept="image/jpeg" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
             </div>            
         </div>
     </div>
