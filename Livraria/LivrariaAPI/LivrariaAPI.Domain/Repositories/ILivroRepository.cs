@@ -8,9 +8,9 @@ namespace LivrariaAPI.Domain.Repositories
     {
         Livro Inserir(Livro livro);
         void Alterar(Livro livro);
-        void Deletar(int id);
+        void Deletar(long id);
         List<LivroQueryResult> Listar();
-        LivroQueryResult ObterPorId(int id);
-        bool CheckId(int id);
+        LivroQueryResult ObterPorId(long id);
+        bool CheckId(long id);
     }
 }

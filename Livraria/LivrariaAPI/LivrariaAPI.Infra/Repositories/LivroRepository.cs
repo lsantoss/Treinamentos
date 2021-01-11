@@ -37,7 +37,7 @@ namespace LivrariaAPI.Infra.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(@$"Não foi possível inserir o livro! {ex.Message}");
+                throw ex;
             }
         }
 
@@ -58,11 +58,11 @@ namespace LivrariaAPI.Infra.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(@$"Não foi possível alterar o livro! {ex.Message}");
+                throw ex;
             }
         }
 
-        public void Deletar(int id)
+        public void Deletar(long id)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace LivrariaAPI.Infra.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception(@$"Não foi possível apagar o livro! {ex.Message}");
+                throw ex;
             }
         }
 
@@ -87,13 +87,13 @@ namespace LivrariaAPI.Infra.Repositories
                 var livros = _dataContext.SQLServerConexao.Query<LivroQueryResult>(sql).ToList();
                 return livros;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                throw ex;
             }
         }
 
-        public LivroQueryResult ObterPorId(int id)
+        public LivroQueryResult ObterPorId(long id)
         {
             try
             {
@@ -104,25 +104,25 @@ namespace LivrariaAPI.Infra.Repositories
                 var livro = _dataContext.SQLServerConexao.Query<LivroQueryResult>(sql, _parametros).FirstOrDefault();
                 return livro;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                throw ex;
             }
         }
 
-        public bool CheckId(int id)
+        public bool CheckId(long id)
         {            
             try
             {
-                _parametros.Add("Id", id, DbType.Int32);
+                _parametros.Add("Id", id, DbType.Int64);
 
                 string sql = "SELECT Id FROM Livro WHERE Id = @Id";
 
                 return _dataContext.SQLServerConexao.Query<bool>(sql, _parametros).FirstOrDefault();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                throw ex;
             }
         }
     }

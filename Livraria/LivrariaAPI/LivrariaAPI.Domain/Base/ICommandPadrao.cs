@@ -1,4 +1,4 @@
-﻿namespace LivrariaAPI.Domain.Interfaces
+﻿namespace LivrariaAPI.Domain.Base
 {
     public interface ICommandPadrao
     {
