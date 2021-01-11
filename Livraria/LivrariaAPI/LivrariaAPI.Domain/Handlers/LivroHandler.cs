@@ -109,7 +109,7 @@ namespace LivrariaAPI.Domain.Handlers
 
                 _repository.Deletar(command.Id);
 
-                var retorno = new ApagarLivroCommandResult(true, "Livro alterado com sucesso!", new
+                var retorno = new ApagarLivroCommandResult(true, "Livro excluído com sucesso!", new
                 {
                     Id = command.Id
                 });
