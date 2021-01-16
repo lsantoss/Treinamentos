@@ -1,6 +1,6 @@
 using System;
 
-namespace AplicacaoMVCDAO.Models
+namespace AplicacaoMVCDAO.AppWeb.Models
 {
     public class ErrorViewModel
     {

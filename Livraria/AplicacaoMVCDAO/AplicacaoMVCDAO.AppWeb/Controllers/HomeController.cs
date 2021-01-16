@@ -1,9 +1,9 @@
-﻿using AplicacaoMVCDAO.Models;
+﻿using AplicacaoMVCDAO.AppWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace AplicacaoMVCDAO.Controllers
+namespace AplicacaoMVCDAO.AppWeb.Controllers
 {
     public class HomeController : Controller
     {

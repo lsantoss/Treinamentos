@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace AplicacaoMVCDAO.Controllers
+namespace AplicacaoMVCDAO.AppWeb.Controllers
 {
     public class LivroController : Controller
     {

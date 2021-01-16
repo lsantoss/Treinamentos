@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace AplicacaoMVCDAO
+namespace AplicacaoMVCDAO.AppWeb
 {
     public class Program
     {
