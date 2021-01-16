@@ -1,11 +1,13 @@
 ﻿using Flunt.Notifications;
 using LivrariaAPI.Domain.Interfaces.Commands;
 using System;
+using System.Text.Json.Serialization;
 
 namespace LivrariaAPI.Domain.Commands.Livro.Input
 {
     public class AtualizarLivroCommand : Notifiable, ICommandPadrao
     {
+        [JsonIgnore]
         public long Id { get; set; }
         public string Nome { get; set; }
         public string Autor { get; set; }
