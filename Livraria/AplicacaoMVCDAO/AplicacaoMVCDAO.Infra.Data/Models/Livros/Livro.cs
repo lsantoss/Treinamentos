@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AplicacaoMVCDAO.Models.Livros
+namespace AplicacaoMVCDAO.Infra.Data.Models.Livros
 {
     public class Livro
     {

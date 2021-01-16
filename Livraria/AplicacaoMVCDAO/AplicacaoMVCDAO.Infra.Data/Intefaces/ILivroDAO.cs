@@ -1,7 +1,7 @@
-﻿using AplicacaoMVCDAO.Models.Livros;
+﻿using AplicacaoMVCDAO.Infra.Data.Models.Livros;
 using System.Collections.Generic;
 
-namespace AplicacaoMVCDAO.Intefaces
+namespace AplicacaoMVCDAO.Infra.Data.Intefaces
 {
     public interface ILivroDAO
     {

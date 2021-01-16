@@ -1,5 +1,5 @@
-﻿using AplicacaoMVCDAO.Intefaces;
-using AplicacaoMVCDAO.Models.Livros;
+﻿using AplicacaoMVCDAO.Infra.Data.Intefaces;
+using AplicacaoMVCDAO.Infra.Data.Models.Livros;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacaoMVCDAO", "AplicacaoMVCDAO\AplicacaoMVCDAO.csproj", "{64CED40C-2D03-417B-A02D-C19AFFC910CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplicacaoMVCDAO", "AplicacaoMVCDAO\AplicacaoMVCDAO.csproj", "{64CED40C-2D03-417B-A02D-C19AFFC910CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacaoMVCDAO.Infra.Data", "AplicacaoMVCDAO.Infra.Data\AplicacaoMVCDAO.Infra.Data.csproj", "{F7F142C2-E0C0-46F5-918E-C0F9094F8AD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{64CED40C-2D03-417B-A02D-C19AFFC910CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64CED40C-2D03-417B-A02D-C19AFFC910CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64CED40C-2D03-417B-A02D-C19AFFC910CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F142C2-E0C0-46F5-918E-C0F9094F8AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F142C2-E0C0-46F5-918E-C0F9094F8AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F142C2-E0C0-46F5-918E-C0F9094F8AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F142C2-E0C0-46F5-918E-C0F9094F8AD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

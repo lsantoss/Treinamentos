@@ -1,6 +1,7 @@
-using AplicacaoMVCDAO.Daos;
-using AplicacaoMVCDAO.DataContexts;
-using AplicacaoMVCDAO.Intefaces;
+using AplicacaoMVCDAO.Infra.Data;
+using AplicacaoMVCDAO.Infra.Data.Daos;
+using AplicacaoMVCDAO.Infra.Data.DataContexts;
+using AplicacaoMVCDAO.Infra.Data.Intefaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

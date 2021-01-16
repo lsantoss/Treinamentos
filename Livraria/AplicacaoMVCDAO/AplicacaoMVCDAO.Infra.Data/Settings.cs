@@ -1,4 +1,4 @@
-﻿namespace AplicacaoMVCDAO
+﻿namespace AplicacaoMVCDAO.Infra.Data
 {
     public class Settings
     {
