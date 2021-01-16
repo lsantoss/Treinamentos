@@ -32,11 +32,11 @@ namespace LivrariaAPI.Domain.Handlers
 
                 Livro livro = new Livro(id, nome, autor, edicao, isbn, imagem);
 
-                livro = _repository.Inserir(livro);
+                id = _repository.Inserir(livro);
                                 
                 var retorno = new AdicionarLivroCommandResult(true, "Livro gravado com sucesso!", new
                 {
-                    Id = livro.Id,
+                    Id = id,
                     Nome = livro.Nome,
                     Autor = livro.Autor,
                     Edicao = livro.Edicao,

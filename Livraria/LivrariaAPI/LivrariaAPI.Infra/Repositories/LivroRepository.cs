@@ -20,7 +20,7 @@ namespace LivrariaAPI.Infra.Repositories
             _dataContext = dataContext;
         }
 
-        public Livro Inserir(Livro livro)
+        public long Inserir(Livro livro)
         {
             try
             {
@@ -32,8 +32,7 @@ namespace LivrariaAPI.Infra.Repositories
 
                 string sql = @"INSERT INTO Livro (Nome, Autor, Edicao, Isbn, Imagem) VALUES (@Nome, @Autor, @Edicao, @Isbn, @imagem); SELECT SCOPE_IDENTITY();";
 
-                livro.Id = _dataContext.SQLServerConexao.ExecuteScalar<long>(sql, _parametros);
-                return livro;
+                return _dataContext.SQLServerConexao.ExecuteScalar<long>(sql, _parametros);
             }
             catch (Exception ex)
             {

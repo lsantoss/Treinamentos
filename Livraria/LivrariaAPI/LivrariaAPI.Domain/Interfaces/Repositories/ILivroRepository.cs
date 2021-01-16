@@ -6,7 +6,7 @@ namespace LivrariaAPI.Domain.Interfaces.Repositories
 {
     public interface ILivroRepository
     {
-        Livro Inserir(Livro livro);
+        long Inserir(Livro livro);
         void Alterar(Livro livro);
         void Deletar(long id);
         List<LivroQueryResult> Listar();
