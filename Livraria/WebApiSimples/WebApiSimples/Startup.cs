@@ -5,9 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
-using WebApiSimples.DataContexts;
-using WebApiSimples.Interfaces;
-using WebApiSimples.Repositories;
 
 namespace WebApiSimples
 {
@@ -22,24 +19,6 @@ namespace WebApiSimples
 
         public void ConfigureServices(IServiceCollection services)
         {
-            #region [+] AppSettings
-
-            services.Configure<Settings>(options => Configuration.GetSection("Settings").Bind(options));
-
-            #endregion
-
-            #region [+] DataContexts
-
-            services.AddScoped<DataContext>();
-
-            #endregion
-
-            #region [+] Repositories
-
-            services.AddTransient<ILivroRepository, LivroRepository>();
-
-            #endregion
-
             #region [+] Swagger
 
             services.AddSwaggerGen(c =>
