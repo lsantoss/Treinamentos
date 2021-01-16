@@ -7,8 +7,8 @@ namespace WebApiSimples.Interfaces
     {
         Livro Inserir(Livro livro);
         void Alterar(Livro livro);
-        void Deletar(int id);
+        void Deletar(long id);
         List<Livro> Listar();
-        Livro ObterPorId(int id);
+        Livro ObterPorId(long id);
     }
 }

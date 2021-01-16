@@ -8,7 +8,6 @@ namespace WebApiSimples.Controllers
 {
     [Consumes("application/json")]
     [Produces("application/json")]
-    [Route("Livro")]
     [ApiController]
     public class LivroController : ControllerBase
     {
@@ -19,15 +18,8 @@ namespace WebApiSimples.Controllers
             _livroRepository = livroRepository;
         }
 
-        [HttpGet]
-        [Route("v1/HealthCheck")]
-        public string HealthCheck()
-        {
-            return "WebApi OK";
-        }
-
         [HttpPost]
-        [Route("v1/Inserir")]
+        [Route("v1/livros")]
         public object Inserir([FromBody] Livro livro)
         {
             try
@@ -57,11 +49,13 @@ namespace WebApiSimples.Controllers
         }
 
         [HttpPut]
-        [Route("v1/Alterar")]
-        public object Alterar([FromBody] Livro livro)
+        [Route("v1/livros/{id}")]
+        public object Alterar(long id, [FromBody] Livro livro)
         {
             try
             {
+                livro.Id = id;
+
                 _livroRepository.Alterar(livro);
 
                 object retorno = new
@@ -87,8 +81,8 @@ namespace WebApiSimples.Controllers
         }
 
         [HttpDelete]
-        [Route("v1/Apagar/{id}")]
-        public object Apagar(int id)
+        [Route("v1/livros/{id}")]
+        public object Apagar(long id)
         {
             try
             {
@@ -117,7 +111,7 @@ namespace WebApiSimples.Controllers
         }
 
         [HttpGet]
-        [Route("v1/Listar")]
+        [Route("v1/livros")]
         public object Listar()
         {
             try
@@ -150,8 +144,8 @@ namespace WebApiSimples.Controllers
         }
 
         [HttpGet]
-        [Route("v1/ObterPorId/{id}")]
-        public object ObterPorId(int id)
+        [Route("v1/livros/{id}")]
+        public object ObterPorId(long id)
         {
             try
             {

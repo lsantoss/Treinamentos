@@ -61,7 +61,7 @@ namespace WebApiSimples.Repositories
             }
         }
 
-        public void Deletar(int id)
+        public void Deletar(long id)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace WebApiSimples.Repositories
             }
         }
 
-        public Livro ObterPorId(int id)
+        public Livro ObterPorId(long id)
         {
             try
             {

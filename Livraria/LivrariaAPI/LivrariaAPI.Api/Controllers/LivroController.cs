@@ -33,7 +33,7 @@ namespace LivrariaAPI.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/HealthCheck")]
-        public ActionResult<string> EmpresaHealthCheck()
+        public ActionResult<string> LivroHealthCheck()
         {
             try
             {
