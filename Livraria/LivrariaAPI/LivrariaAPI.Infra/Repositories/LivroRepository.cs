@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using LivrariaAPI.Domain.Entidades;
+using LivrariaAPI.Domain.Interfaces.Repositories;
 using LivrariaAPI.Domain.Query;
-using LivrariaAPI.Domain.Repositories;
 using LivrariaAPI.Infra.DataContexts;
 using System;
 using System.Collections.Generic;

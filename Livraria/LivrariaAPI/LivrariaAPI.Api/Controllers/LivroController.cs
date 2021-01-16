@@ -1,9 +1,9 @@
-﻿using LivrariaAPI.Domain.Base;
-using LivrariaAPI.Domain.Commands.Livro.Input;
+﻿using LivrariaAPI.Domain.Commands.Livro.Input;
 using LivrariaAPI.Domain.Commands.Livro.Output;
 using LivrariaAPI.Domain.Handlers;
+using LivrariaAPI.Domain.Interfaces.Commands;
+using LivrariaAPI.Domain.Interfaces.Repositories;
 using LivrariaAPI.Domain.Query;
-using LivrariaAPI.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

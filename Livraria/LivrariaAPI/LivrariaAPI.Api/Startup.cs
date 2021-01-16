@@ -1,5 +1,5 @@
 using LivrariaAPI.Domain.Handlers;
-using LivrariaAPI.Domain.Repositories;
+using LivrariaAPI.Domain.Interfaces.Repositories;
 using LivrariaAPI.Infra;
 using LivrariaAPI.Infra.DataContexts;
 using LivrariaAPI.Infra.Repositories;

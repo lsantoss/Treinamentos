@@ -2,7 +2,7 @@
 using LivrariaAPI.Domain.Query;
 using System.Collections.Generic;
 
-namespace LivrariaAPI.Domain.Repositories
+namespace LivrariaAPI.Domain.Interfaces.Repositories
 {
     public interface ILivroRepository
     {

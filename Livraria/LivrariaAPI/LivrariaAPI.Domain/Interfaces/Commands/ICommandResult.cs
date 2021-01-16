@@ -1,4 +1,4 @@
-﻿namespace LivrariaAPI.Domain.Base
+﻿namespace LivrariaAPI.Domain.Interfaces.Commands
 {
     public interface ICommandResult
     {
