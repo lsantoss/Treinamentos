@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using WebApiSimples.Entidades;
+using Livraria.Api.Entidades;
 
-namespace WebApiSimples.Controllers
+namespace Livraria.Api.Controllers
 {
     [Consumes("application/json")]
     [Produces("application/json")]

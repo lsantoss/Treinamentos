@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 
-namespace WebApiSimples
+namespace Livraria.Api
 {
     public class Startup
     {
