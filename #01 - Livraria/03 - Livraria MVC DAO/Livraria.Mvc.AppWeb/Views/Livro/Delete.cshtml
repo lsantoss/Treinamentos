@@ -1,20 +1,20 @@
-﻿@model AplicacaoMVCDAO.Infra.Data.Models.Livros.Livro
+﻿@model Livraria.Mvc.Infra.Data.Models.Livros.Livro
 
-<h1>Editar Livro</h1>
+<h1>Apagar Livro</h1>
 
 <hr />
 
-<form asp-action="Edit" method="post" enctype="multipart/form-data">
+<form asp-action="Delete" method="post">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Imagem" class="control-label"></label>
                 <br />
-                <img src="data:image/jpeg;base64, @Model.Imagem" height="460" width="375" alt="Capa do Livro" />
+                <img src="data:image/jpeg;base64, @Model.Imagem" height="385" width="300" alt="Capa do Livro" />
             </div>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
@@ -23,42 +23,33 @@
             </div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" placeholder="Digite o nome" />
+                <input asp-for="Nome" class="form-control" readonly />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Autor" class="control-label"></label>
-                <input asp-for="Autor" class="form-control" placeholder="Digite o autor" />
+                <input asp-for="Autor" class="form-control" readonly />
                 <span asp-validation-for="Autor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Edicao" class="control-label"></label>
-                <input asp-for="Edicao" class="form-control" placeholder="Digite a edição" />
+                <input asp-for="Edicao" class="form-control" readonly />
                 <span asp-validation-for="Edicao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Isbn" class="control-label"></label>
-                <input asp-for="Isbn" class="form-control" placeholder="Digite o isbn" />
+                <input asp-for="Isbn" class="form-control" readonly />
                 <span asp-validation-for="Isbn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Imagem" class="control-label"></label>
-                <input asp-for="Imagem" class="form-control-file" type="file" accept="image/jpeg"/>
-                <span asp-validation-for="Imagem" class="text-danger"></span>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-group">
-                <input type="submit" value="Editar" class="btn btn-primary" />
+                <input type="submit" value="Apagar" class="btn btn-danger" />
                 <a asp-action="Index" class="btn btn-dark">Voltar</a>
             </div>
         </div>
     </div>
 </form>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

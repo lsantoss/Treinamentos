@@ -1,9 +1,9 @@
-﻿using AplicacaoMVCDAO.AppWeb.Models;
+﻿using Livraria.Mvc.AppWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace AplicacaoMVCDAO.AppWeb.Controllers
+namespace Livraria.Mvc.AppWeb.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,4 @@
-﻿namespace AplicacaoMVCDAO.Infra.Data
+﻿namespace Livraria.Mvc.Infra.Data
 {
     public class Settings
     {

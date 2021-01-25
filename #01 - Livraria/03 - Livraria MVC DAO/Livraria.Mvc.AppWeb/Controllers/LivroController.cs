@@ -1,5 +1,5 @@
-﻿using AplicacaoMVCDAO.Infra.Data.Intefaces;
-using AplicacaoMVCDAO.Infra.Data.Models.Livros;
+﻿using Livraria.Mvc.Infra.Data.Intefaces;
+using Livraria.Mvc.Infra.Data.Models.Livros;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace AplicacaoMVCDAO.AppWeb.Controllers
+namespace Livraria.Mvc.AppWeb.Controllers
 {
     public class LivroController : Controller
     {

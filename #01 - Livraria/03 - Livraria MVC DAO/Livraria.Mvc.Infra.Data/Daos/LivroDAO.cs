@@ -1,13 +1,13 @@
-﻿using AplicacaoMVCDAO.Infra.Data.DataContexts;
-using AplicacaoMVCDAO.Infra.Data.Intefaces;
-using AplicacaoMVCDAO.Infra.Data.Models.Livros;
+﻿using Livraria.Mvc.Infra.Data.DataContexts;
+using Livraria.Mvc.Infra.Data.Intefaces;
+using Livraria.Mvc.Infra.Data.Models.Livros;
 using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace AplicacaoMVCDAO.Infra.Data.Daos
+namespace Livraria.Mvc.Infra.Data.Daos
 {
     public class LivroDAO : ILivroDAO
     {

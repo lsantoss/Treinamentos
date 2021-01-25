@@ -1,14 +1,14 @@
-using AplicacaoMVCDAO.Infra.Data;
-using AplicacaoMVCDAO.Infra.Data.Daos;
-using AplicacaoMVCDAO.Infra.Data.DataContexts;
-using AplicacaoMVCDAO.Infra.Data.Intefaces;
+using Livraria.Mvc.Infra.Data;
+using Livraria.Mvc.Infra.Data.Daos;
+using Livraria.Mvc.Infra.Data.DataContexts;
+using Livraria.Mvc.Infra.Data.Intefaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AplicacaoMVCDAO.AppWeb
+namespace Livraria.Mvc.AppWeb
 {
     public class Startup
     {

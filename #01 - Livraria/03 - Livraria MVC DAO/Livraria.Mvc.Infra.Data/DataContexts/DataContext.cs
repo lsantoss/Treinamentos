@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace AplicacaoMVCDAO.Infra.Data.DataContexts
+namespace Livraria.Mvc.Infra.Data.DataContexts
 {
     public class DataContext : IDisposable
     {

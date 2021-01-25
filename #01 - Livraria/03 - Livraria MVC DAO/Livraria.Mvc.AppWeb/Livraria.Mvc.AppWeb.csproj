@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AplicacaoMVCDAO.Infra.Data\AplicacaoMVCDAO.Infra.Data.csproj" />
+    <ProjectReference Include="..\Livraria.Mvc.Infra.Data\Livraria.Mvc.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>
