@@ -9,7 +9,7 @@ namespace Livraria.Mvc.Infra.Data.DataContexts
     {
         public SqlConnection SQLServerConexao { get; set; }
 
-        public DataContext(IOptions<Settings> options)
+        public DataContext(IOptions<SettingsInfraData> options)
         {
             try
             {

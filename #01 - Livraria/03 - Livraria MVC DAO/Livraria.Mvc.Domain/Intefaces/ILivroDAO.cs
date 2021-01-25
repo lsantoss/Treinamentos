@@ -1,7 +1,7 @@
-﻿using Livraria.Mvc.Infra.Data.Models.Livros;
+﻿using Livraria.Mvc.Domain.Models.Livros;
 using System.Collections.Generic;
 
-namespace Livraria.Mvc.Infra.Data.Intefaces
+namespace Livraria.Mvc.Domain.Intefaces
 {
     public interface ILivroDAO
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Livraria.Mvc.Infra.Data.Models.Livros
+namespace Livraria.Mvc.Domain.Models.Livros
 {
     public class Livro
     {

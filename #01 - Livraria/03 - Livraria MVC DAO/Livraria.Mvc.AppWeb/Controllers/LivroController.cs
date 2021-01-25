@@ -1,5 +1,5 @@
-﻿using Livraria.Mvc.Infra.Data.Intefaces;
-using Livraria.Mvc.Infra.Data.Models.Livros;
+﻿using Livraria.Mvc.Domain.Intefaces;
+using Livraria.Mvc.Domain.Models.Livros;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

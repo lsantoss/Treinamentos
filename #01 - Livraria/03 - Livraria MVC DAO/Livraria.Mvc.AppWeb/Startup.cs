@@ -1,7 +1,7 @@
 using Livraria.Mvc.Infra.Data;
 using Livraria.Mvc.Infra.Data.Daos;
 using Livraria.Mvc.Infra.Data.DataContexts;
-using Livraria.Mvc.Infra.Data.Intefaces;
+using Livraria.Mvc.Domain.Intefaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +23,7 @@ namespace Livraria.Mvc.AppWeb
         {
             #region [+] AppSettings
 
-            services.Configure<Settings>(options => Configuration.GetSection("Settings").Bind(options));
+            services.Configure<SettingsInfraData>(options => Configuration.GetSection("SettingsInfraData").Bind(options));
 
             #endregion
 

@@ -1,6 +1,6 @@
 ﻿using Livraria.Mvc.Infra.Data.DataContexts;
-using Livraria.Mvc.Infra.Data.Intefaces;
-using Livraria.Mvc.Infra.Data.Models.Livros;
+using Livraria.Mvc.Domain.Intefaces;
+using Livraria.Mvc.Domain.Models.Livros;
 using Dapper;
 using System;
 using System.Collections.Generic;
