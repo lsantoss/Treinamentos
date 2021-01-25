@@ -1,7 +1,7 @@
 ﻿using LivrariaAPI.Domain.Commands.Livro.Input;
 using LivrariaAPI.Domain.Commands.Livro.Output;
-using LivrariaAPI.Domain.Handlers;
 using LivrariaAPI.Domain.Interfaces.Commands;
+using LivrariaAPI.Domain.Interfaces.Handler;
 using LivrariaAPI.Domain.Interfaces.Repositories;
 using LivrariaAPI.Domain.Query;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +15,9 @@ namespace LivrariaAPI.Api.Controllers
     public class LivroController : ControllerBase
     {
         private readonly ILivroRepository _repositorio;
-        private readonly LivroHandler _handler;
+        private readonly ILivroHandler _handler;
 
-        public LivroController(ILivroRepository repositorio, LivroHandler handler)
+        public LivroController(ILivroRepository repositorio, ILivroHandler handler)
         {
             _repositorio = repositorio;
             _handler = handler;

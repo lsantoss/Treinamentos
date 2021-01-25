@@ -1,4 +1,5 @@
 using LivrariaAPI.Domain.Handlers;
+using LivrariaAPI.Domain.Interfaces.Handler;
 using LivrariaAPI.Domain.Interfaces.Repositories;
 using LivrariaAPI.Infra;
 using LivrariaAPI.Infra.DataContexts;
@@ -38,7 +39,7 @@ namespace LivrariaAPI.Api
 
             #region [+] Handlers
 
-            services.AddTransient<LivroHandler>();
+            services.AddTransient<ILivroHandler, LivroHandler>();
 
             #endregion
 

@@ -3,14 +3,13 @@ using LivrariaAPI.Domain.Commands.Livro.Input;
 using LivrariaAPI.Domain.Commands.Livro.Output;
 using LivrariaAPI.Domain.Entidades;
 using LivrariaAPI.Domain.Interfaces.Commands;
+using LivrariaAPI.Domain.Interfaces.Handler;
 using LivrariaAPI.Domain.Interfaces.Repositories;
 using System;
 
 namespace LivrariaAPI.Domain.Handlers
 {
-    public class LivroHandler : Notifiable, ICommandHandler<AdicionarLivroCommand>,
-                                            ICommandHandler<AtualizarLivroCommand>,
-                                            ICommandHandler<ApagarLivroCommand>
+    public class LivroHandler : Notifiable, ILivroHandler 
     {
         private readonly ILivroRepository _repository;
 
@@ -23,6 +22,9 @@ namespace LivrariaAPI.Domain.Handlers
         {
             try
             {
+                if (!command.ValidarCommand())
+                    return new AdicionarLivroCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+
                 long id = 0;
                 string nome = command.Nome;
                 string autor = command.Autor;
