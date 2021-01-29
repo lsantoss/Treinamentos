@@ -101,9 +101,9 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Route("v1/usuarios/{id}")]
-        public ICommandResult UsuarioDelete(int id, [FromBody] ApagarUsuarioCommand command)
+        public ICommandResult UsuarioDelete(int id)
         {
-            command.Id = id;
+            ApagarUsuarioCommand command = new ApagarUsuarioCommand() { Id = id };
             return _handler.Handle(command);
         }
     }
