@@ -5,7 +5,8 @@ namespace Votacao.Domain.Interfaces.Handlers
 {
     public interface IUsuarioHandler : ICommandHandler<AdicionarUsuarioCommand>,
                                        ICommandHandler<AtualizarUsuarioCommand>,
-                                       ICommandHandler<ApagarUsuarioCommand>
+                                       ICommandHandler<ApagarUsuarioCommand>,
+                                       ICommandHandler<LogarUsuarioCommand>
     {
     }
 }

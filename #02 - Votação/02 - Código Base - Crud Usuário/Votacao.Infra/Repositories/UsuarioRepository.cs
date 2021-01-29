@@ -6,7 +6,6 @@ using System.Linq;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Query.Usuario;
-using Votacao.Domain.ValueObjects;
 using Votacao.Infra.DataContexts;
 
 namespace Votacao.Infra.Repositories
@@ -104,14 +103,14 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public UsuarioQueryResult Logar(Email login, string senha)
+        public UsuarioQueryResult Logar(string login, string senha)
         {
             try
             {
-                _parametros.Add("Login", login.ToString(), DbType.String);
+                _parametros.Add("Login", login, DbType.String);
                 _parametros.Add("Senha", senha, DbType.String);
 
-                string sql = @"SELECT * FROM Usuario WHERE Login=@Login AND Senha=@Senha";
+                string sql = @"SELECT * FROM Usuario WHERE Login=@Login and Senha=@Senha";
 
                 return _dataContext.SQLServerConexao.Query<UsuarioQueryResult>(sql, _parametros).FirstOrDefault();
             }
@@ -121,15 +120,17 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public bool CheckLogin(Email login)
+        public bool CheckLogin(string login)
         {
             try
             {
-                _parametros.Add("Login", login.ToString(), DbType.String);
+                _parametros.Add("Login", login, DbType.String);
 
-                string sql = @"SELECT Login FROM Usuario WHERE Login=@Login ";
+                string sql = @"SELECT Login FROM Usuario WHERE Login=@Login";
 
-                return _dataContext.SQLServerConexao.Query<bool>(sql, _parametros).FirstOrDefault();
+                string retono = _dataContext.SQLServerConexao.Query<string>(sql, _parametros).FirstOrDefault();
+
+                return retono != null ? true : false;
             }
             catch (Exception ex)
             {

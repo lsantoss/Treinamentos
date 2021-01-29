@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using Votacao.Domain.Commands.Usuario.Input;
 using Votacao.Domain.Interfaces.Commands;
@@ -35,7 +36,14 @@ namespace Votacao.Api.Controllers
         [Route("v1/usuarios")]
         public List<UsuarioQueryResult> Usuarios()
         {
-            return _repository.Listar();
+            try
+            {
+                return _repository.Listar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -52,7 +60,14 @@ namespace Votacao.Api.Controllers
         [Route("v1/usuarios/{id}")]
         public UsuarioQueryResult Usuario(int id)
         {
-            return _repository.Obter(id);
+            try
+            {
+                return _repository.Obter(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -68,7 +83,14 @@ namespace Votacao.Api.Controllers
         [Route("v1/usuarios")]
         public ICommandResult UsuarioPost([FromBody] AdicionarUsuarioCommand command)
         {
-            return _handler.Handle(command);
+            try
+            {
+                return _handler.Handle(command);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -85,8 +107,15 @@ namespace Votacao.Api.Controllers
         [Route("v1/usuarios/{id}")]
         public ICommandResult UsuarioPut(int id, [FromBody] AtualizarUsuarioCommand command)
         {
-            command.Id = id;
-            return _handler.Handle(command);
+            try
+            {
+                command.Id = id;
+                return _handler.Handle(command);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -94,7 +123,6 @@ namespace Votacao.Api.Controllers
         /// </summary>                
         /// <remarks><h2><b>Excluir Usuário na base de dados.</b></h2></remarks> 
         /// <param name="id">Parâmetro requerido Id do Usuário</param>     
-        /// <param name="command">Parâmetro requerido command de Delete</param>
         /// <response code="200">OK Request</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
@@ -103,8 +131,38 @@ namespace Votacao.Api.Controllers
         [Route("v1/usuarios/{id}")]
         public ICommandResult UsuarioDelete(int id)
         {
-            ApagarUsuarioCommand command = new ApagarUsuarioCommand() { Id = id };
-            return _handler.Handle(command);
+            try
+            {
+                ApagarUsuarioCommand command = new ApagarUsuarioCommand() { Id = id };
+                return _handler.Handle(command);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Logar Usuário 
+        /// </summary>                
+        /// <remarks><h2><b>Efetua login do Usuário.</b></h2></remarks>
+        /// <param name="command">Parâmetro requerido command de Login</param>
+        /// <response code="200">OK Request</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpPost]
+        [Route("v1/usuarios/login")]
+        public ICommandResult UsuarioPost([FromBody] LogarUsuarioCommand command)
+        {
+            try
+            {
+                return _handler.Handle(command);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

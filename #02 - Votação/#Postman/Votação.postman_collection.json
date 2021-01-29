@@ -153,6 +153,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"login\": \"Marcos123@gmail.com\",\r\n  \"senha\": \"minhasenha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44373/v1/usuarios/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44373",
+							"path": [
+								"v1",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

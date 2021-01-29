@@ -17,5 +17,10 @@ namespace Votacao.Domain.Entidades
             Login = login;
             Senha = senha;
         }
+
+        public Usuario(int id)
+        {
+            Id = id;
+        }
     }
 }

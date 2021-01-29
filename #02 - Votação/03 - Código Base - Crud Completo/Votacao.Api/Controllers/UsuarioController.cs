@@ -141,5 +141,28 @@ namespace Votacao.Api.Controllers
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Logar Usuário 
+        /// </summary>                
+        /// <remarks><h2><b>Efetua login do Usuário.</b></h2></remarks>
+        /// <param name="command">Parâmetro requerido command de Login</param>
+        /// <response code="200">OK Request</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpPost]
+        [Route("v1/usuarios/login")]
+        public ICommandResult UsuarioPost([FromBody] LogarUsuarioCommand command)
+        {
+            try
+            {
+                return _handler.Handle(command);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

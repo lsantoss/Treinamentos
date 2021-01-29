@@ -117,5 +117,37 @@ namespace Votacao.Domain.Handlers
                 throw ex;
             }
         }
+
+        public ICommandResult Handle(LogarUsuarioCommand command)
+        {
+            try
+            {
+                if (!command.ValidarCommand())
+                    return new CommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+
+                string login = command.Login;
+                string senha = command.Senha;
+
+                if (!_repository.CheckLogin(login))
+                    AddNotification("Login", "Este Login não está cadastrado! Impossível prosseguir com este Login.");
+
+                if (Invalid)
+                    return new CommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+
+                var usuarioQR = _repository.Logar(login, senha);
+
+                if (usuarioQR == null)
+                    AddNotification("Senha", "Senha incorreta.");
+
+                if (Invalid)
+                    return new CommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+
+                return new CommandResult(true, "Usuário logado com sucesso!", usuarioQR);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

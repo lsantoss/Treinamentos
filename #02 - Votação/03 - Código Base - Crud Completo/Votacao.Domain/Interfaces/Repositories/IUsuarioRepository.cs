@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Query.Usuario;
-using Votacao.Domain.ValueObjects;
 
 namespace Votacao.Domain.Interfaces.Repositories
 {
@@ -14,9 +13,9 @@ namespace Votacao.Domain.Interfaces.Repositories
         UsuarioQueryResult Obter(int id);
         List<UsuarioQueryResult> Listar();
 
-        UsuarioQueryResult Logar(Email login, string senha);
+        UsuarioQueryResult Logar(string login, string senha);
 
-        bool CheckLogin(Email login);
+        bool CheckLogin(string login);
         bool CheckId(int id);
     }
 }
