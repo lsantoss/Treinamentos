@@ -1,68 +1,44 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using Votacao.Domain.Commands.Usuario.Input;
+using Votacao.Domain.Command.Voto.Input;
 using Votacao.Domain.Interfaces.Commands;
 using Votacao.Domain.Interfaces.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
-using Votacao.Domain.Query.Usuario;
+using Votacao.Domain.Query.Voto;
 
 namespace Votacao.Api.Controllers
 {
     [Consumes("application/json")]
     [Produces("application/json")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class VotoController : ControllerBase
     {
-        private readonly IUsuarioRepository _repository;
-        private readonly IUsuarioHandler _handler;
+        private readonly IVotoRepository _repositorio;
+        private readonly IVotoHandler _handler;
 
-        public UsuarioController(IUsuarioRepository repository, IUsuarioHandler handler)
+        public VotoController(IVotoRepository repositorio, IVotoHandler handler)
         {
-            _repository = repository;
+            _repositorio = repositorio;
             _handler = handler;
         }
 
         /// <summary>
-        /// Usuários
+        /// Votos
         /// </summary>                
-        /// <remarks><h2><b><i>Lista todos os Usuários.</i></b></h2></remarks>
+        /// <remarks><h2><b><i>Lista todos os Votos.</i></b></h2></remarks>
         /// <response code="200">OK Request</response>
         /// <response code="204">Not Content</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
-        [Route("v1/usuarios")]
-        public List<UsuarioQueryResult> Usuarios()
+        [Route("v1/votos")]
+        public List<VotoQueryResult> Votos()
         {
             try
             {
-                return _repository.Listar();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// Usuário
-        /// </summary>                
-        /// <remarks><h2><b>Consulta o Usuário.</b></h2></remarks>
-        /// <param name="id">Parâmetro requerido Id do Usuário</param>
-        /// <response code="200">OK Request</response>
-        /// <response code="204">Not Content</response>
-        /// <response code="400">Bad Request</response>
-        /// <response code="401">Unauthorized</response>
-        /// <response code="500">Internal Server Error</response>
-        [HttpGet]
-        [Route("v1/usuarios/{id}")]
-        public UsuarioQueryResult Usuario(int id)
-        {
-            try
-            {
-                return _repository.Obter(id);
+                return _repositorio.Listar();
             }
             catch (Exception ex)
             {
@@ -71,17 +47,41 @@ namespace Votacao.Api.Controllers
         }
 
         /// <summary>
-        /// Incluir Usuário 
+        /// Voto
         /// </summary>                
-        /// <remarks><h2><b>Incluir novo Usuário na base de dados.</b></h2></remarks>
+        /// <remarks><h2><b>Consulta o Voto.</b></h2></remarks>
+        /// <param name="id">Parâmetro requerido Id do Usuário</param>
+        /// <response code="200">OK Request</response>
+        /// <response code="204">Not Content</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpGet]
+        [Route("v1/votos/{id}")]
+        public VotoQueryResult Voto(int id)
+        {
+            try
+            {
+                return _repositorio.Obter(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Incluir Voto 
+        /// </summary>                
+        /// <remarks><h2><b>Incluir novo Voto na base de dados.</b></h2></remarks>
         /// <param name="command">Parâmetro requerido command de Insert</param>
         /// <response code="200">OK Request</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
-        [Route("v1/usuarios")]
-        public ICommandResult UsuarioPost([FromBody] AdicionarUsuarioCommand command)
+        [Route("v1/votos")]
+        public ICommandResult VotoPost([FromBody]AdicionarVotoCommand command)
         {
             try
             {
@@ -94,18 +94,18 @@ namespace Votacao.Api.Controllers
         }
 
         /// <summary>
-        /// Alterar Usuário
+        /// Alterar Voto
         /// </summary>        
-        /// <remarks><h2><b>Alterar Usuário na base de dados.</b></h2></remarks>   
-        /// <param name="id">Parâmetro requerido Id do Usuário</param>     
+        /// <remarks><h2><b>Alterar Voto na base de dados.</b></h2></remarks> 
+        /// <param name="id">Parâmetro requerido Id do Usuário</param>       
         /// <param name="command">Parâmetro requerido command de Update</param>
         /// <response code="200">OK Request</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="500">Internal Server Error</response>
-        [HttpPut]
-        [Route("v1/usuarios/{id}")]
-        public ICommandResult UsuarioPut(int id, [FromBody] AtualizarUsuarioCommand command)
+        [HttpPatch]
+        [Route("v1/votos/{id}")]
+        public ICommandResult VotoPatch(int id, [FromBody]AtualizarVotoCommand command)
         {
             try
             {
@@ -119,21 +119,21 @@ namespace Votacao.Api.Controllers
         }
 
         /// <summary>
-        /// Excluir Usuário
+        /// Excluir Voto
         /// </summary>                
-        /// <remarks><h2><b>Excluir Usuário na base de dados.</b></h2></remarks> 
-        /// <param name="id">Parâmetro requerido Id do Usuário</param>     
+        /// <remarks><h2><b>Excluir Voto na base de dados.</b></h2></remarks>
+        /// <param name="id">Parâmetro requerido Id do Usuário</param>       
         /// <response code="200">OK Request</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
-        [Route("v1/usuarios/{id}")]
-        public ICommandResult UsuarioDelete(int id)
+        [Route("v1/votos/{id}")]
+        public ICommandResult VotoDelete(int id)
         {
             try
             {
-                ApagarUsuarioCommand command = new ApagarUsuarioCommand() { Id = id };
+                ApagarVotoCommand command = new ApagarVotoCommand() { Id = id };
                 return _handler.Handle(command);
             }
             catch (Exception ex)
