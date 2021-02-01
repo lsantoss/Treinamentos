@@ -1,5 +1,4 @@
-﻿using Dapper;
-using Livraria.Domain.Entidades;
+﻿using Livraria.Domain.Entidades;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Domain.Query;
 using Livraria.Infra.Data.DataContexts;
@@ -73,9 +72,9 @@ namespace Livraria.Infra.Data.Repositories
         {
             try
             {
-                IMongoCollection<LivroQueryResult> query = _dataContext.MongoDBConexao.GetCollection<LivroQueryResult>("Livro");
+                IMongoCollection<LivroQueryResult> delete = _dataContext.MongoDBConexao.GetCollection<LivroQueryResult>("Livro");
                 Expression<Func<LivroQueryResult, bool>> filtro = x => x.Id.Equals(id);
-                DeleteResult result = query.DeleteOne(filtro);
+                DeleteResult result = delete.DeleteOne(filtro);
 
                 //if (result.DeletedCount == 0) return result.ToString();
             }
