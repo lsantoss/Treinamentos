@@ -8,13 +8,13 @@ namespace Livraria.Domain.Commands.Livro.Input
     public class ApagarLivroCommand : Notifiable, ICommandPadrao
     {
         [JsonIgnore]
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
         public bool ValidarCommand()
         {
             try
             {
-                if (Id <= 0)
+                if (Id == Guid.Empty)
                     AddNotification("Id", "Id é um campo obrigatório");
 
                 return Valid;
