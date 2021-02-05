@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using Votacao.Api.Services;
 using Votacao.Domain.Commands.Usuario.Input;
 using Votacao.Domain.Interfaces.Commands;
 using Votacao.Domain.Interfaces.Handlers;
@@ -18,11 +19,13 @@ namespace Votacao.Api.Controllers
     {
         private readonly IUsuarioRepository _repository;
         private readonly IUsuarioHandler _handler;
+        private readonly TokenJWTService _tokenJWTService;
 
-        public UsuarioController(IUsuarioRepository repository, IUsuarioHandler handler)
+        public UsuarioController(IUsuarioRepository repository, IUsuarioHandler handler, TokenJWTService tokenJWTService)
         {
             _repository = repository;
             _handler = handler;
+            _tokenJWTService = tokenJWTService;
         }
 
         /// <summary>
@@ -160,7 +163,13 @@ namespace Votacao.Api.Controllers
         {
             try
             {
-                return _handler.Handle(command);
+                var result = _handler.Handle(command);
+
+                var tokenJWT = _tokenJWTService.GenerateToken((UsuarioQueryResult)result.Data);
+
+                result.Data = tokenJWT;
+
+                return result;
             }
             catch (Exception ex)
             {
