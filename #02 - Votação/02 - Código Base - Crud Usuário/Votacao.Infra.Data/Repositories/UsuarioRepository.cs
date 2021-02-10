@@ -6,9 +6,9 @@ using System.Linq;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Query.Usuario;
-using Votacao.Infra.DataContexts;
+using Votacao.Infra.Data.DataContexts;
 
-namespace Votacao.Infra.Repositories
+namespace Votacao.Infra.Data.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {

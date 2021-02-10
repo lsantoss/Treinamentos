@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Votacao.Infra.DataContexts
+namespace Votacao.Infra.Data.DataContexts
 {
     public class DataContext : IDisposable
     {

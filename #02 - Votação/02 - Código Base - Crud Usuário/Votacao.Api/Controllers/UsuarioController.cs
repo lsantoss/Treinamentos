@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Votacao.Domain.Commands.Usuario.Input;
-using Votacao.Domain.Interfaces.Commands;
+using Votacao.Infra.Interfaces.Commands;
 using Votacao.Domain.Interfaces.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Query.Usuario;
