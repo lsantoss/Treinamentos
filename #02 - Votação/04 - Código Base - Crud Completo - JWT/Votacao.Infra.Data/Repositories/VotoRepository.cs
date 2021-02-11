@@ -8,9 +8,9 @@ using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Query.Filme;
 using Votacao.Domain.Query.Usuario;
 using Votacao.Domain.Query.Voto;
-using Votacao.Infra.DataContexts;
+using Votacao.Infra.Data.DataContexts;
 
-namespace Votacao.Infra.Repositories
+namespace Votacao.Infra.Data.Repositories
 {
     public class VotoRepository : IVotoRepository
     {
