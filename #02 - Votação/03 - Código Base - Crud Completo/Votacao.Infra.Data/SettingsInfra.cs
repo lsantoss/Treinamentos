@@ -1,4 +1,4 @@
-﻿namespace Votacao.Infra
+﻿namespace Votacao.Infra.Data
 {
     public class SettingsInfra
     {
