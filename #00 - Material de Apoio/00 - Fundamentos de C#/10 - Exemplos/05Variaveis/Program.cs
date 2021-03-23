@@ -7,7 +7,7 @@ namespace _05Variaveis
         static void Main(string[] args)
         {
             // 0 -> 255
-            byte variavelByte = 10;
+            byte variavelByte = 5;
 
             // -128 -> 127
             sbyte variavelSByte = 55;
@@ -46,7 +46,7 @@ namespace _05Variaveis
             bool falso = false;
 
             // somente 1 caracter entre aspas simples
-            char caracter = 'F'; 
+            char caracter = 'F';
 
             Console.WriteLine(variavelByte);
             Console.WriteLine(variavelSByte);
