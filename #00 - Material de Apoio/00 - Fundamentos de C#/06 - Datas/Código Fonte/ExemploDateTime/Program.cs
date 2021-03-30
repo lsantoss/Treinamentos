@@ -39,7 +39,7 @@ namespace ExemploDateTime
             Console.WriteLine($"Segundos : {dateUtcNow.Second}");
 
             Console.WriteLine();
-            Console.WriteLine("===== Data e Hora DateTime.UtcNow =====");
+            Console.WriteLine("===== Data e Hora DateTime.Today =====");
             DateTime dateToday = DateTime.Today;
             Console.WriteLine($"Data/Hora: {dateToday}");
             Console.WriteLine($"Dia      : {dateToday.Day}");
