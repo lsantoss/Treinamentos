@@ -36,12 +36,14 @@ namespace _49Xlsx
 			produtos.Add(produto2);
 			produtos.Add(produto3);
 
+			//Cabeçalho e tipo das colunas
 			DataTable tabela = new DataTable();
 			tabela.Columns.Add("Id", typeof(int));
 			tabela.Columns.Add("Nome", typeof(string));
 			tabela.Columns.Add("Valor", typeof(double));
 			tabela.Columns.Add("Data Produção", typeof(string));
 			
+			//Preenchendo a planilha
 			foreach (var produto in produtos)
 			{
 				DataRow linha = tabela.NewRow();

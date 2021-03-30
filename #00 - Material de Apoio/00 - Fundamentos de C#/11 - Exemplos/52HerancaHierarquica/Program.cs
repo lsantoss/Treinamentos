@@ -6,8 +6,11 @@ namespace _52HerancaHierarquica
     {
         static void Main(string[] args)
         {
+            A classeA = new A();
             B classeB = new B();
             C classeC = new C();
+
+            classeA.MetodoClasseA();
 
             classeB.MetodoClasseA();
             classeB.MetodoClasseB();

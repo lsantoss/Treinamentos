@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace _48Txt
 {
@@ -13,16 +14,16 @@ namespace _48Txt
             StreamWriter streamWriter = new StreamWriter(localArquivo);
             streamWriter.Close();
 
-            //Lê arquivo inteiro 
+            ////Lê arquivo inteiro 
             string texto = File.ReadAllText(localArquivo);
 
-            //Lê todas as linhas
+            ////Lê todas as linhas
             string[] textoLinhas = File.ReadAllLines(localArquivo);
 
-            //Salvar conteúdo de uma string no arquivo
+            ////Salvar conteúdo de uma string no arquivo
             File.WriteAllText(destinoArquivo, texto);
 
-            //Salvar conteúdo de uma string no arquivo
+            ////Salvar conteúdo de uma string no arquivo
             File.WriteAllLines(destinoArquivo, textoLinhas);
         }
     }

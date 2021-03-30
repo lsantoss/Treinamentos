@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace _46Diretorios
 {
@@ -9,11 +10,12 @@ namespace _46Diretorios
             string localDiretorio = @"D:\zzz";
             string destinoDiretorio = @"D:\123\zzz";
 
-            //Verifica se diretorio existe
-            var diretorioExiste = Directory.Exists(localDiretorio);
-
             //Cria diretorio
             Directory.CreateDirectory(localDiretorio);
+
+            //Verifica se diretorio existe
+            bool diretorioExiste = Directory.Exists(localDiretorio);
+            Console.WriteLine(diretorioExiste);
 
             //Move diretorio
             Directory.Move(localDiretorio, destinoDiretorio);
@@ -22,7 +24,9 @@ namespace _46Diretorios
             Directory.Delete(localDiretorio);
 
             //Apaga diretorio
-            Directory.Delete(destinoDiretorio, true);
+            Directory.Delete(localDiretorio, true);
+
+            Console.ReadKey();
         }
     }
 }
